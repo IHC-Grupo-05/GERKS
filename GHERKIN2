@@ -1,25 +1,25 @@
 Feature: Recuperación de contraseña
   Como usuario
-  Quiero recuperar mi contraseña en caso de olvidarla
+  Quiero restablecer mi contraseña en caso de haberla olvidado
   Para poder acceder nuevamente a mi cuenta.
 
   Scenario: Solicitud de recuperación de contraseña exitosa
-    Given el usuario está en la pantalla de recuperación de contraseña
-    And el sistema muestra un campo para "Correo Electrónico"
-    When el usuario ingresa:
+    Given el usuario se encuentra en la pantalla de recuperación de contraseña
+    And el sistema presenta un campo para "Correo Electrónico"
+    When el usuario ingresa la siguiente información:
       | Campo                | Valor                   |
       | Correo Electrónico   | ejemplo@correo.com      |
-    And hace clic en el botón "Enviar enlace de recuperación"
-    Then el sistema verifica que el correo esté registrado
+    And presiona el botón "Enviar enlace de recuperación"
+    Then el sistema valida que el correo esté registrado
     And envía un enlace de recuperación al correo proporcionado
-    And se muestra el mensaje "Se ha enviado un enlace a tu correo electrónico para restablecer tu contraseña."
+    And muestra el mensaje "Se ha enviado un enlace a tu correo electrónico para restablecer tu contraseña."
 
   Scenario: Correo no registrado
-    Given el usuario está en la pantalla de recuperación de contraseña
-    And el sistema muestra un campo para "Correo Electrónico"
-    When el usuario ingresa:
+    Given el usuario se encuentra en la pantalla de recuperación de contraseña
+    And el sistema presenta un campo para "Correo Electrónico"
+    When el usuario ingresa la siguiente información:
       | Campo                | Valor                   |
       | Correo Electrónico   | usuario@noexistente.com |
-    And hace clic en el botón "Enviar enlace de recuperación"
-    Then el sistema verifica que el correo no está registrado
-    And muestra el mensaje "El correo proporcionado no está registrado. Inténtelo nuevamente."
+    And presiona el botón "Enviar enlace de recuperación"
+    Then el sistema valida que el correo no está registrado
+    And muestra el mensaje "El correo proporcionado no está registrado. Por favor, inténtelo nuevamente."
