@@ -1,27 +1,27 @@
-Feature: Creación de perfiles de usuario
+Feature: Creación y personalización de perfiles de usuario
   Como usuario
   Quiero crear y personalizar mi perfil
-  Para gestionar mi cuenta y personalizar mi experiencia.
+  Para gestionar mi cuenta y mejorar mi experiencia en la plataforma.
 
   Scenario: Crear un perfil exitosamente
-    Given el usuario está en la pantalla de "Crear Perfil"
-    And el sistema solicita la información básica:
+    Given el usuario se encuentra en la pantalla de "Crear Perfil"
+    And el sistema solicita la siguiente información básica:
       | Campo        | Ejemplo               |
       | Nombre       | Juan Pérez            |
       | Correo       | juanperez@email.com   |
       | Foto         | Imagen cargada        |
-    When el usuario completa los campos
-    And hace clic en el botón "Guardar"
-    Then el sistema guarda la información
-    And se muestra el mensaje "Tu perfil ha sido creado con éxito."
+    When el usuario completa todos los campos requeridos
+    And presiona el botón "Guardar"
+    Then el sistema guarda la información proporcionada
+    And muestra el mensaje "Tu perfil ha sido creado con éxito."
 
-  Scenario: Editar perfil existente
-    Given el usuario está en la pantalla de "Editar Perfil"
-    And el sistema muestra la información actual:
+  Scenario: Editar un perfil existente
+    Given el usuario se encuentra en la pantalla de "Editar Perfil"
+    And el sistema muestra la información actual del perfil:
       | Campo        | Valor actual          |
       | Nombre       | Juan Pérez            |
       | Correo       | juanperez@email.com   |
-    When el usuario cambia el nombre a "Juan Carlos Pérez"
-    And hace clic en "Guardar cambios"
-    Then el sistema actualiza la información
-    And se muestra el mensaje "Tus cambios han sido guardados exitosamente."
+    When el usuario actualiza el nombre a "Juan Carlos Pérez"
+    And presiona el botón "Guardar cambios"
+    Then el sistema actualiza la información del perfil
+    And muestra el mensaje "Tus cambios han sido guardados exitosamente."
