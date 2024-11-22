@@ -1,27 +1,27 @@
 Feature: Opción de suscripción premium
   Como usuario
-  Quiero tener la opción de suscribirme a un plan premium
-  Para acceder a contenido exclusivo y beneficios adicionales.
+  Quiero suscribirme a un plan premium
+  Para acceder a contenido exclusivo y obtener beneficios adicionales.
 
   Scenario: Suscripción premium exitosa
-    Given el usuario está en la pantalla de suscripciones
-    And el sistema muestra los planes disponibles
+    Given el usuario se encuentra en la pantalla de suscripciones
+    And el sistema presenta los planes disponibles
     When el usuario selecciona el plan "Premium Mensual"
-    And hace clic en el botón "Suscribirme"
-    And completa el proceso de pago con:
+    And presiona el botón "Suscribirme"
+    And completa el proceso de pago con los siguientes datos:
       | Método de pago      | Valor                  |
       | Tarjeta de crédito  | VISA terminada en 1234 |
-    Then el sistema valida el pago
-    And activa la suscripción premium
-    And se muestra el mensaje "¡Bienvenido al plan Premium! Disfruta de tus beneficios."
+    Then el sistema verifica y valida el pago
+    And activa la suscripción premium para el usuario
+    And muestra el mensaje "¡Bienvenido al plan Premium! Disfruta de tus beneficios exclusivos."
 
   Scenario: Error en el pago
-    Given el usuario está en la pantalla de suscripciones
-    And el sistema muestra los planes disponibles
+    Given el usuario se encuentra en la pantalla de suscripciones
+    And el sistema presenta los planes disponibles
     When el usuario selecciona el plan "Premium Anual"
-    And hace clic en el botón "Suscribirme"
-    And intenta realizar el pago con:
+    And presiona el botón "Suscribirme"
+    And intenta completar el pago con los siguientes datos:
       | Método de pago      | Valor                  |
       | Tarjeta de crédito  | VISA terminada en 5678 |
-    Then el sistema rechaza el pago
-    And muestra el mensaje "El pago no pudo ser procesado. Inténtelo nuevamente."
+    Then el sistema rechaza el pago debido a un error
+    And muestra el mensaje "El pago no pudo ser procesado. Por favor, inténtelo nuevamente."
